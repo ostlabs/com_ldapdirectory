@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0">
+  <name>LDAP Directories</name>
+  <author>OSTLabs Inc</author>
+  <creationDate>06/21/2010</creationDate>
+  <copyright>OSTLabs Inc.</copyright>
+  <license>GPL</license>
+  <authorEmail>jason.kendall@ostlabs.com</authorEmail>
+  <authorUrl>http://www.ostlabs.com</authorUrl>
+  <version>0.01</version>
+  <description/>
+  <files>
+    <file>assets/default.png</file>
+    <file>controller.php</file>
+    <file>helpers/query.php</file>
+    <file>ldapdirectory.php</file>
+    <file>ldapdirectory.xml</file>
+    <file>metadata.xml</file>
+    <file>models/edit.php</file>
+    <file>models/groups.php</file>
+    <file>models/user.php</file>
+    <file>models/users.php</file>
+    <file>views/edit/index.html</file>
+    <file>views/edit/tmpl/default.php</file>
+    <file>views/edit/tmpl/index.html</file>
+    <file>views/edit/view.html.php</file>
+    <file>views/groups/index.html</file>
+    <file>views/groups/tmpl/default.php</file>
+    <file>views/groups/tmpl/index.html</file>
+    <file>views/groups/view.html.php</file>
+    <file>views/user/index.html</file>
+    <file>views/user/tmpl/default.php</file>
+    <file>views/user/tmpl/index.html</file>
+    <file>views/user/view.html.php</file>
+    <file>views/users/index.html</file>
+    <file>views/users/tmpl/default.php</file>
+    <file>views/users/tmpl/index.html</file>
+    <file>views/users/view.html.php</file>
+  </files>
+  <administration>
+    <files folder="admin">
+      <file>admin.ldapdirectory.php</file>
+      <file>config.xml</file>
+      <file>contact.xml</file>
+      <file>controllers/mappings.php</file>
+      <file>controllers/users.php</file>
+      <file>helper.php</file>
+      <file>index.html</file>
+      <file>tables/index.html</file>
+      <file>tables/mappings.php</file>
+      <file>tables/users.php</file>
+      <file>views/mappings.php</file>
+      <file>views/users.php</file>
+    </files>
+    <menu admin_menu_link="option=com_ldapdirectory" admin_menu_alt="" admin_menu_img="js/ThemeOffice/edit.png">LDAP Directory</menu>
+  </administration>
+  <installfile/>
+  <uninstallfile/>
+  <params/>
+</install>

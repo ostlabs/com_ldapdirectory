@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params>
+		<param name="use_ldapauth" type="radio" default="1" label="Use LDAP Auth Plugin Settings" description="Uses the settings from the LDAP auth plugin for the following values">
+			<option value="1">Yes</option>
+		</param>
+		<param name="use_commit" type="radio" default="1" label="Actually Commit Sync " description="Will only update the database when YES is selected - useful to test sync settings.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+                <param name="use_addisable" type="radio" default="0" label="Use AD Disabled Identifier" description="Map accounts to disabled using the AD disabled identifier">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+                <param name="ldap_filterstring" type="text" size="20" default="objectclass=person" label="Filter String" description="LDAP Filter string used to filter out ldap accounts. LDAP is usually: objectclass=person , AD is usually: " />                                                                                                
+                <param name="@spacer" type="spacer" default="" label="" description="Joomla! User Mappings" />                                                                                                                                            
+                <param name="ldap_fullname" type="text" size="20" default="cn" label="Map FullName" description="LDAP tag used for Joomla! User full name. LDAP is usually: cn or fullname -- AD is usually:" />                                                                                                
+                <param name="ldap_email" type="text" size="20" default="mail" label="Map Email" description="LDAP tag used for Joomla! User email address. LDAP is usually: mail -- AD is usually:" />                                                                                                       
+                <param name="ldap_uid" type="text" size="20" default="uid" label="Map User ID" description="LDAP tag used for Joomla! User login ID. LDAP is usually: uid -- AD is usually: sAMAccountName" />
+	</params>
+</config>

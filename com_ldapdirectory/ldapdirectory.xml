@@ -54,6 +54,7 @@
       <file>tables/users.php</file>
       <file>views/mappings.php</file>
       <file>views/users.php</file>
+      <file>sql/install.mysql.sql</file>
     </files>
     <menu admin_menu_link="option=com_ldapdirectory" admin_menu_alt="" admin_menu_img="js/ThemeOffice/edit.png">LDAP Directory</menu>
     <submenu>

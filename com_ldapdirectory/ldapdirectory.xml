@@ -83,8 +83,8 @@
     </query>
     <query>
 	INSERT INTO `jos_ldapd_mapping` (`mid`, `name`, `displayname`, `usereditable`, `fromldap`, `ldapfield`, `ldapwins`, `checked_out`, `checked_out_time`) VALUES
-	(1, 'groupId', 'Users Group', 0, 0, '', 0, 0, '0000-00-00');
-	(2, 'picture', 'Users Picture', 1, 0, '', 0, 0, '0000-00-00'),
+	(1, 'groupId', 'Users Group', 0, 0, '', 0, 0, '0000-00-00'),
+	(2, 'picture', 'Users Picture', 1, 0, '', 0, 0, '0000-00-00');
     </query>
   <params/>
 </install>

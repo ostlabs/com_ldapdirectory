@@ -63,7 +63,4 @@
 	<menu link="option=mappings">Mappings</menu>
     </submenu>
   </administration>
-  <installfile/>
-  <uninstallfile/>
-  <params/>
 </install>

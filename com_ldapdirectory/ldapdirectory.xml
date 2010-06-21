@@ -20,7 +20,6 @@
     <file>helpers/query.php</file>
     <file>ldapdirectory.php</file>
     <file>ldapdirectory.xml</file>
-    <file>metadata.xml</file>
     <file>models/edit.php</file>
     <file>models/groups.php</file>
     <file>models/user.php</file>
@@ -46,7 +45,6 @@
     <files folder="admin">
       <file>admin.ldapdirectory.php</file>
       <file>config.xml</file>
-      <file>contact.xml</file>
       <file>controllers/mappings.php</file>
       <file>controllers/users.php</file>
       <file>helper.php</file>

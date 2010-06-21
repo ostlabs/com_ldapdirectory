@@ -2,7 +2,7 @@
 -- Table structure for table `jos_ldapd_mapping`
 --
 
-CREATE TABLE IF NOT EXISTS `##_ldapd_mapping` (
+CREATE TABLE IF NOT EXISTS `#__ldapd_mapping` (
   `mid` bigint(20) NOT NULL auto_increment,
   `name` varchar(25) NOT NULL COMMENT 'Field Name',
   `displayname` varchar(25) NOT NULL COMMENT 'Display Name',
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `##_ldapd_mapping` (
 -- Dumping data for table `jos_ldapd_mapping`
 --
 
-INSERT INTO `##_ldapd_mapping` (`mid`, `name`, `displayname`, `usereditable`, `fromldap`, `ldapfield`, `ldapwins`, `checked_out`, `checked_out_time`) VALUES
+INSERT INTO `#__ldapd_mapping` (`mid`, `name`, `displayname`, `usereditable`, `fromldap`, `ldapfield`, `ldapwins`, `checked_out`, `checked_out_time`) VALUES
 (1, 'groupId', 'Users Group', 0, 0, '', 0, 0, '0000-00-00'),
 (2, 'picture', 'Users Picture', 1, 0, '', 0, 0, '0000-00-00');
 
@@ -29,7 +29,7 @@ INSERT INTO `##_ldapd_mapping` (`mid`, `name`, `displayname`, `usereditable`, `f
 -- Table structure for table `jos_ldapd_userdata`
 --
 
-CREATE TABLE IF NOT EXISTS `##_ldapd_userdata` (
+CREATE TABLE IF NOT EXISTS `#__ldapd_userdata` (
   `id` bigint(20) NOT NULL auto_increment COMMENT 'key',
   `uid` bigint(20) NOT NULL COMMENT 'mapped from #__users',
   `mid` bigint(20) NOT NULL COMMENT 'mapped from #__ldapd_mapping',

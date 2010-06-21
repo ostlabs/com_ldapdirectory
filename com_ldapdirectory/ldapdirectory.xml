@@ -9,6 +9,11 @@
   <authorUrl>http://www.ostlabs.com</authorUrl>
   <version>0.01</version>
   <description/>
+  <install>
+    <sql>
+	<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+    </sql>
+  </install>
   <files>
     <file>assets/default.png</file>
     <file>controller.php</file>
@@ -53,38 +58,12 @@
       <file>views/users.php</file>
     </files>
     <menu admin_menu_link="option=com_ldapdirectory" admin_menu_alt="" admin_menu_img="js/ThemeOffice/edit.png">LDAP Directory</menu>
+    <submenu>
+	<menu link="option=users">Users</menu>
+	<menu link="option=mappings">Mappings</menu>
+    </submenu>
   </administration>
   <installfile/>
   <uninstallfile/>
-  <queries>
-    <query>
-	CREATE TABLE IF NOT EXISTS `jos_ldapd_mapping` (
-	  `mid` bigint(20) NOT NULL auto_increment,
-	  `name` varchar(25) NOT NULL COMMENT 'Field Name',
-	  `displayname` varchar(25) NOT NULL COMMENT 'Display Name',
-	  `usereditable` tinyint(1) NOT NULL COMMENT 'Is the field user editable',
-	  `fromldap` tinyint(1) NOT NULL COMMENT 'LDAP Mapped',
-	  `ldapfield` varchar(25) NOT NULL COMMENT 'Field in LDAP to map',
-	  `ldapwins` tinyint(1) NOT NULL COMMENT 'LDAP overwrites local database',
-	  `checked_out` tinyint(1) NOT NULL,
-	  `checked_out_time` date NOT NULL,
-	  PRIMARY KEY  (`mid`)
-	) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
-    </query>
-    <query>
-	CREATE TABLE IF NOT EXISTS `jos_ldapd_userdata` (
-	  `id` bigint(20) NOT NULL auto_increment COMMENT 'key',
-	  `uid` bigint(20) NOT NULL COMMENT 'mapped from #__users',
-	  `mid` bigint(20) NOT NULL COMMENT 'mapped from #__ldapd_mapping',
-	  `data` longtext NOT NULL COMMENT 'Data',
-	  `blobdata` longblob,
-	  PRIMARY KEY  (`id`)
-	) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-    </query>
-    <query>
-	INSERT INTO `jos_ldapd_mapping` (`mid`, `name`, `displayname`, `usereditable`, `fromldap`, `ldapfield`, `ldapwins`, `checked_out`, `checked_out_time`) VALUES
-	(1, 'groupId', 'Users Group', 0, 0, '', 0, 0, '0000-00-00'),
-	(2, 'picture', 'Users Picture', 1, 0, '', 0, 0, '0000-00-00');
-    </query>
   <params/>
 </install>

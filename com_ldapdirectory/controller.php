@@ -62,6 +62,7 @@ class LDAPDirController extends JController
 	    $data = JRequest::getVar('data', array(), 'default', 'array');
 	    $image = JRequest::getVar('image', array(), 'FILES', 'array');
 	    $uid = JRequest::getVar('uid', '0', 'default', 'int');
+
 	    // Check that uid = self
 	    $myid = &JFactory::getUser();
 	    if ($myid->id != $uid) {

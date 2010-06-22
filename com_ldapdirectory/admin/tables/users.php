@@ -69,9 +69,9 @@ class Tableusers extends JTable
 		$this->id = $id;
 	    else
 		$this->id = null;
-	    $this->uid = $uid;
-	    $this->mid = $mid;
-	    $this->data = $data;
+	    $this->uid = (int) $uid;
+	    $this->mid = (int) $mid;
+	    $this->data = filter_var($data, FILTER_SANITIZE_STRING);
 	    $this->blobdata = $blobdata;
 	    if ($id == null  || $overwrite) 
 		$this->store();
@@ -84,8 +84,8 @@ class Tableusers extends JTable
 	    if ($size && $size[0] < 200 && $size[1] < 200) {
 		$fp = fopen($image['tmp_name'], "rb");
 		$this->storedata($uid, 2, $size['mime'], 1, fread($fp, $image['size']));
-//		print_r($size);
 	    }
+	    return null;
 	}
 
 	function deleteimage($uid) 

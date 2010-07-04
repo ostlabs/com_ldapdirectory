@@ -18,16 +18,16 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 // If you do not want to show blocked users, look for $this->user->blocked
 
 ?>
-<script language="javascript" type="text/javascript">                                                                                                                                                                                
-<!--                                                                                                                                                                                                                                 
-        function submitbutton(pressbutton) {                                                                                                                                                                                         
-            var form = document.usereditForm;                                                                                                                                                                                          
-                                                                                                                                                                                                                                     
-            // do field validation                                                                                                                                                                                               
-            form.submit();                                                                                                                                                                                                       
-        }                                                                                                                                                                                                                            
--->                                                                                                                                                                                                                                  
-</script>  
+<script language="javascript" type="text/javascript">
+<!--
+        function submitbutton(pressbutton) {
+            var form = document.usereditForm;
+
+            // do field validation
+            form.submit();
+        }
+-->
+</script>
 
 This will display all the avilable details of the requested user.<BR>
 <BR>
@@ -45,7 +45,7 @@ This will display all the avilable details of the requested user.<BR>
 	}
 
 	echo "Upload Image: <input type='file' name='image'><BR><BR>";
-	
+
 	foreach ($this->user->mdata as $data) {
 	    if ($data->mid == 1 || $data->mid == 2) {
 		// Group or Picture - Do nothing as this should ALWAYS come from LDAP or placed in a space
@@ -58,14 +58,14 @@ This will display all the avilable details of the requested user.<BR>
     }
 
 ?>
-        <button class="button" onclick="return submitbutton('send');">                                                                                                                                                       
-                <?php echo JText::_('SEND'); ?>                                                                                                                                                                              
-        </button>                                                                                                                                                                                                            
-        <button class="button" onclick="window.close();return false;">                                                                                                                                                       
-                <?php echo JText::_('CANCEL'); ?>                                                                                                                                                                            
-        </button>  
-        <input type="hidden" name="uid" value="<?php echo $this->user->id; ?>" />                                                                                                                                                                     
-        <input type="hidden" name="option" value="com_ldapdirectory" />                                                                                                                                                                     
-        <input type="hidden" name="task" value="save" />                                                                                                                                                                             
-        <?php echo JHTML::_( 'form.token' ); ?> 
+        <button class="button" onclick="return submitbutton('send');">
+                <?php echo JText::_('SEND'); ?>
+        </button>
+        <button class="button" onclick="window.close();return false;">
+                <?php echo JText::_('CANCEL'); ?>
+        </button>
+        <input type="hidden" name="uid" value="<?php echo $this->user->id; ?>" />
+        <input type="hidden" name="option" value="com_ldapdirectory" />
+        <input type="hidden" name="task" value="save" />
+        <?php echo JHTML::_( 'form.token' ); ?>
 </form>

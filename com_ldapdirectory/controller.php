@@ -51,7 +51,7 @@ class LDAPDirController extends JController
 
 		// Display the view
 		$view->assign('error', $this->getError());
-		
+
 		$view->display();
 	}
 
@@ -92,9 +92,9 @@ class LDAPDirController extends JController
 	    $config =& JFactory::getConfig();
 	    $key = JRequest::getCmd( 'key' );
 
-            $document = &JFactory::getDocument();                                                                                                                                                                                    
-    	    $doc = &JDocument::getInstance('raw');                                                                                                                                                                                   
-    	    // Swap the objects                                                                                                                                                                                                      
+            $document = &JFactory::getDocument();
+    	    $doc = &JDocument::getInstance('raw');
+    	    // Swap the objects
     	    $document = $doc;
 
 	    if ($key == $config->getValue( 'config.secret' ))
@@ -109,9 +109,9 @@ class LDAPDirController extends JController
 
 	    $uid = JRequest::getInt( 'uid' );
 
-            $document = &JFactory::getDocument();                                                                                                                                                                                    
-            $doc = &JDocument::getInstance('raw');                                                                                                                                                                                   
-            // Swap the objects                                                                                                                                                                                                      
+            $document = &JFactory::getDocument();
+            $doc = &JDocument::getInstance('raw');
+            // Swap the objects
             $document = $doc;
 
 	    $image = LDAPDirHelperQuery::getuserimage($uid);

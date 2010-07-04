@@ -40,7 +40,7 @@ class LDAPDirControllerMappings extends JController
 
 	    $this->_task = $task;
 
-	    switch ($task) 
+	    switch ($task)
 	    {
 		default:
 		    echo "Not implemented yet: " . $task;
@@ -70,7 +70,7 @@ class LDAPDirControllerMappings extends JController
 		case "remove":
 		    $this->remove();
 		    break;
-		
+
 		case "display":
 		    $this->display();
 		    break;
@@ -133,7 +133,7 @@ class LDAPDirControllerMappings extends JController
 		$lists['search']= $search;
 
 
-        	require_once(JPATH_COMPONENT.DS.'views'.DS.'mappings.php');                                                                                                                                                                  
+        	require_once(JPATH_COMPONENT.DS.'views'.DS.'mappings.php');
 		LDAPDirViewmappings::mappings( $rows, $pageNav, $lists );
 	}
 
@@ -243,7 +243,7 @@ class LDAPDirControllerMappings extends JController
 		for ($i = 0; $i < $n; $i++)
 		{
 		    if ($mid[$i] == 1 || $mid[$i] == 2) {
-            		return JError::raiseWarning( 500, "You may not delete Static mappings for GroupID or Picture as these are hard coded mappings" );                                                                                                                                      
+            		return JError::raiseWarning( 500, "You may not delete Static mappings for GroupID or Picture as these are hard coded mappings" );
 		    } else {
 			$query = "select id from #__ldapd_userdata where mid = " . $mid[$i];
 			$db->setQuery($query);
@@ -252,8 +252,8 @@ class LDAPDirControllerMappings extends JController
 			    $utable->delete($row->id);
 			}
 
-                	if (!$table->delete( (int) $mid[$i] )) {                                                                                                                                                             
-                	    return JError::raiseWarning( 500, $table->getError() );                                                                                                                                      
+                	if (!$table->delete( (int) $mid[$i] )) {
+                	    return JError::raiseWarning( 500, $table->getError() );
                 	}
 		    }
 		}

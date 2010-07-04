@@ -28,6 +28,6 @@ class LDAPDirModelUsers extends JModel
 {
 
     function getUsers() {
-	return LDAPDirHelperQuery::queryusers();    
+	return LDAPDirHelperQuery::queryusers();
     }
 }

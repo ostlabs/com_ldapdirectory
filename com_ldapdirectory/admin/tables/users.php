@@ -50,14 +50,14 @@ class Tableusers extends JTable
 		     . " where uid = $id";
 	    $this->_db->setQuery($query);
 	    $cdata = $this->_db->loadAssocList();
-	    
+
 	    foreach ($cdata as $value)
 	    {
 		$data[$value['name']]->dname = $value['displayname'];
 		$data[$value['name']]->data = $value['data'];
 	    }
 
-	    return $data;	    
+	    return $data;
 
 	}
 
@@ -73,7 +73,7 @@ class Tableusers extends JTable
 	    $this->mid = (int) $mid;
 	    $this->data = filter_var($data, FILTER_SANITIZE_STRING);
 	    $this->blobdata = $blobdata;
-	    if ($id == null  || $overwrite) 
+	    if ($id == null  || $overwrite)
 		$this->store();
 	}
 
@@ -88,7 +88,7 @@ class Tableusers extends JTable
 	    return null;
 	}
 
-	function deleteimage($uid) 
+	function deleteimage($uid)
 	{
 	    $query = "SELECT id FROM #__ldapd_userdata AS d WHERE uid = $uid AND mid = 2";
 	    $this->_db->setQuery($query);

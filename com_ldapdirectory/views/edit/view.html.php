@@ -27,7 +27,7 @@ class ldapdirViewEdit extends JView
 	{
 		global $mainframe, $option;
 		// Show all the groups
-		
+
 		$myid = &JFactory::getUser();
 
 		if ($myid->id == 0) {
@@ -35,10 +35,10 @@ class ldapdirViewEdit extends JView
 		    echo "I'm sorry dave, I can't let you do that";
 		} else {
 
-                    $model =& $this->getModel();                                                                                                                                                                                         
-	            $user = $model->getUser($myid->id); 
+                    $model =& $this->getModel();
+	            $user = $model->getUser($myid->id);
     	    	    $this->assignRef('user', $user);
-    
+
 		    parent::display($tpl);
 		}
 

@@ -28,8 +28,8 @@ class ldapdirViewUser extends JView
 		global $mainframe, $option;
 		// Show all the groups
 
-                $model =& $this->getModel();                                                                                                                                                                                         
-                $user = $model->getUser(JRequest::getInt('user')); 
+                $model =& $this->getModel();
+                $user = $model->getUser(JRequest::getInt('user'));
 		$this->assignRef('user', $user);
 
 		parent::display($tpl);

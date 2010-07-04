@@ -20,54 +20,54 @@ class LDAPDirHelperQuery
 
     function queryusers($id=null) {
 
-	$db =& JFactory::getDBO(); 
+	$db =& JFactory::getDBO();
 
 	if (!is_null($id)) $where = " WHERE id = $id";
 
 	$query1 = "select id, name, username, email, usertype, block, sendEmail, registerDate, lastvisitDate from #__users" . $where;
 
         $query2 = "select m.mid, m.name, m.displayname, m.usereditable, data"
-    		 . " from #__ldapd_mapping as m"                                                                                                                                                                                
+    		 . " from #__ldapd_mapping as m"
             	. " LEFT JOIN #__ldapd_userdata as d on m.mid = d.mid  ";
 
 	$db->setQuery($query1);
-	if ($id) 
+	if ($id)
 	{
 	    $result = $db->loadObject();
             $result->link = JRoute::_("index.php?option=com_ldapdirectory&view=user&user=" . $result->id);
-            $result->cemail = JHTML::_('email.cloak', $result->email);                                                                                                                                                      
+            $result->cemail = JHTML::_('email.cloak', $result->email);
     	    $db->setQuery($query2 . " AND uid = $id ORDER BY mid" );
 	    foreach ($db->loadAssocList() as $object ) {
-		$result->mdata[$object['name']]['data'] = $object['data']; 
-		$result->mdata[$object['name']]['displayname'] = $object['displayname']; 
+		$result->mdata[$object['name']]['data'] = $object['data'];
+		$result->mdata[$object['name']]['displayname'] = $object['displayname'];
 	    }
 	}
 	else
 	{
-	    $result = $db->loadObjectList(); 
-            foreach ($result as $id => $user) 
+	    $result = $db->loadObjectList();
+            foreach ($result as $id => $user)
 	    {
-                    $result[$id]->link = JRoute::_("index.php?option=com_ldapdirectory&view=user&user=" . $user->id);                                                                                                                 
-                    $result[$id]->cemail = JHTML::_('email.cloak', $user->email);                                                                                                                                                      
+                    $result[$id]->link = JRoute::_("index.php?option=com_ldapdirectory&view=user&user=" . $user->id);
+                    $result[$id]->cemail = JHTML::_('email.cloak', $user->email);
     		    $db->setQuery($query2 . " AND uid = $id ORDER BY mid" );
 		    foreach ($db->loadAssocList() as $object ) {
-			$result[$id]->mdata[$object['name']]['data'] = $object['data']; 
-			$result[$id]->mdata[$object['name']]['displayname'] = $object['displayname']; 
+			$result[$id]->mdata[$object['name']]['data'] = $object['data'];
+			$result[$id]->mdata[$object['name']]['displayname'] = $object['displayname'];
 		    }
-            }  
+            }
 	}
 	return $result;
     }
 
     function getuserimage($uid) {
-	$db =& JFactory::getDBO(); 
+	$db =& JFactory::getDBO();
 
         $query = "select data, blobdata"
-    		 . " from #__ldapd_userdata as m"                                                                                                                                                                                
+    		 . " from #__ldapd_userdata as m"
 		 . " WHERE mid = 2 AND uid = " . $uid;
 
 	$db->setQuery($query);
-    	$tmp = $db->loadObjectList(); 
+    	$tmp = $db->loadObjectList();
 	return $tmp[0];
     }
 

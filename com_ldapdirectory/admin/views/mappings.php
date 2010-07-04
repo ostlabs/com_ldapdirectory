@@ -1,21 +1,21 @@
 <?
 
-// no direct access                                                                                                                                                                                                                  
-defined( '_JEXEC' ) or die( 'Restricted access' );                                                                                                                                                                                   
-                                                                                                                                                                                                                                     
-/**                                                                                                                                                                                                                                  
-* @package              Joomla                                                                                                                                                                                                       
-* @subpackage   Banners                                                                                                                                                                                                              
-*/                                                                                                                                                                                                                                   
+// no direct access
+defined( '_JEXEC' ) or die( 'Restricted access' );
+
+/**
+* @package              Joomla
+* @subpackage   Banners
+*/
 class LDAPDirViewMappings
-{  
+{
 
        function mappings( &$rows, &$pageNav, &$lists )
         {
 		JToolBarHelper::title( JText::_( 'Manage Field Mappings' ), 'generic.png' );
-                JToolBarHelper::deleteList( '', 'remove' );                                                                                                                                                                          
-                JToolBarHelper::editListX( 'edit' );                                                                                                                                                                                 
-                JToolBarHelper::addNewX( 'add' ); 
+                JToolBarHelper::deleteList( '', 'remove' );
+                JToolBarHelper::editListX( 'edit' );
+                JToolBarHelper::addNewX( 'add' );
 		ldapdirHelper::basicicons(true);
                 $user =& JFactory::getUser();
                 JHTML::_('behavior.tooltip');
@@ -112,22 +112,22 @@ class LDAPDirViewMappings
                                         </td>
                                         <td align="center">
 					    <?php
-            				    $img    = $row->usereditable ? $imgY : $imgX;                                                                                                                                                                           
-			                    $task   = $row->usereditable ? 'editable' : 'noteditable';                                                                                                                                                                 
-			                    $alt    = $row->usereditable ? JText::_( 'User editable' ) : JText::_( 'User not able to edit' );                                                                                                                                     
-			                    $action = $row->usereditable ? JText::_( 'Make Uneditable' ) : JText::_( 'Make editable' );                                                                                                                               
-                                                                                                                                                                                                                                     
-			                    echo '                                                                                                                                                                                                            
-			                    <a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $prefix.$task .'\')" title="'. $action .'">                                                                                           
-			                    <img src="images/'. $img .'" border="0" alt="'. $alt .'" /></a>'                                                                                                                                                     
-			                    ;   
+            				    $img    = $row->usereditable ? $imgY : $imgX;
+			                    $task   = $row->usereditable ? 'editable' : 'noteditable';
+			                    $alt    = $row->usereditable ? JText::_( 'User editable' ) : JText::_( 'User not able to edit' );
+			                    $action = $row->usereditable ? JText::_( 'Make Uneditable' ) : JText::_( 'Make editable' );
+
+			                    echo '
+			                    <a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $prefix.$task .'\')" title="'. $action .'">
+			                    <img src="images/'. $img .'" border="0" alt="'. $alt .'" /></a>'
+			                    ;
 					    ?>
                                         </td>
                                         <td align="center">
 					    <?php
             				    $img    = $row->fromldap ? $imgY : $imgX;
-                                                                                                                                                                                                                                     
-			                    echo '<img src="images/'. $img .'" border="0" alt="'. $alt .'" />';   
+
+			                    echo '<img src="images/'. $img .'" border="0" alt="'. $alt .'" />';
 					    ?>
                                         </td>
                                         <td align="center">
@@ -135,15 +135,15 @@ class LDAPDirViewMappings
                                         </td>
                                         <td align="center">
 					    <?php
-            				    $img    = $row->ldapwins ? $imgY : $imgX;                                                                                                                                                                           
-			                    $task   = $row->ldapwins ? 'ldapwins' : 'ldaplooses';                                                                                                                                                                 
-			                    $alt    = $row->ldapwins ? JText::_( 'LDAP Wins' ) : JText::_( 'LDAP Looses' );                                                                                                                                     
-			                    $action = $row->ldapwins ? JText::_( 'LDAP to loose' ) : JText::_( 'LDAP to win' );                                                                                                                               
-                                                                                                                                                                                                                                     
-			                    echo '                                                                                                                                                                                                            
-			                    <a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $prefix.$task .'\')" title="'. $action .'">                                                                                           
-			                    <img src="images/'. $img .'" border="0" alt="'. $alt .'" /></a>'                                                                                                                                                     
-			                    ;   
+            				    $img    = $row->ldapwins ? $imgY : $imgX;
+			                    $task   = $row->ldapwins ? 'ldapwins' : 'ldaplooses';
+			                    $alt    = $row->ldapwins ? JText::_( 'LDAP Wins' ) : JText::_( 'LDAP Looses' );
+			                    $action = $row->ldapwins ? JText::_( 'LDAP to loose' ) : JText::_( 'LDAP to win' );
+
+			                    echo '
+			                    <a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $prefix.$task .'\')" title="'. $action .'">
+			                    <img src="images/'. $img .'" border="0" alt="'. $alt .'" /></a>'
+			                    ;
 					    ?>
                                         </td>
                                         <td align="center">
@@ -250,7 +250,7 @@ class LDAPDirViewMappings
 							</label>
 						</td>
 						<td>
-							<? echo JHTML::_('select.radiolist', $yesno, 'usereditable', 'class="inputbox" ', 'value', 'text', $row->usereditable, 'align' ); ?>							
+							<? echo JHTML::_('select.radiolist', $yesno, 'usereditable', 'class="inputbox" ', 'value', 'text', $row->usereditable, 'align' ); ?>
 						</td>
 					</tr>
 					<tr>
@@ -260,7 +260,7 @@ class LDAPDirViewMappings
 							</label>
 						</td>
 						<td>
-							<? echo JHTML::_('select.radiolist', $yesno, 'fromldap', 'class="inputbox" ', 'value', 'text', $row->fromldap, 'align' ); ?>							
+							<? echo JHTML::_('select.radiolist', $yesno, 'fromldap', 'class="inputbox" ', 'value', 'text', $row->fromldap, 'align' ); ?>
 						</td>
 					</tr>
 					</table>
@@ -289,7 +289,7 @@ class LDAPDirViewMappings
 						</label>
 					</td>
 					<td>
-						<? echo JHTML::_('select.radiolist', $yesno, 'ldapwins', 'class="inputbox" ', 'value', 'text', $row->ldapwins, 'align' ); ?>							
+						<? echo JHTML::_('select.radiolist', $yesno, 'ldapwins', 'class="inputbox" ', 'value', 'text', $row->ldapwins, 'align' ); ?>
 					</td>
 				</tr>
 				</table>

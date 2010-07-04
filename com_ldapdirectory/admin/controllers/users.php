@@ -40,7 +40,7 @@ class LDAPDirControllerUsers extends JController
 
 	    $this->_task = $task;
 
-	    switch ($task) 
+	    switch ($task)
 	    {
 		default:
 		    echo "Not implemented yet: " . $task;
@@ -62,7 +62,7 @@ class LDAPDirControllerUsers extends JController
 		case "remove":
 		    $this->remove();
 		    break;
-		
+
 		case "display":
 		    $this->display();
 		    break;
@@ -126,7 +126,7 @@ class LDAPDirControllerUsers extends JController
 		$lists['search']= $search;
 
 
-        	require_once(JPATH_COMPONENT.DS.'views'.DS.'users.php');                                                                                                                                                                  
+        	require_once(JPATH_COMPONENT.DS.'views'.DS.'users.php');
 		LDAPDirViewUsers::displayusers( $rows, $pageNav, $lists );
 	}
 
@@ -175,20 +175,20 @@ class LDAPDirControllerUsers extends JController
 		$user = JFactory::getuser($cid);
 
 		if (!$user->bind($userd)) { // now bind the data to the JUser Object, if it not works....
- 
+
 		    JError::raiseWarning('', JText::_( $user->getError())); // ...raise an Warning
 		    return false; // if you're in a method/function return false
- 
-		}
- 
-		if (!$user->save()) { // if the user is NOT saved...
- 
-		    JError::raiseWarning('', JText::_( $user->getError())); // ...raise an Warning
-		    return false; // if you're in a method/function return false
- 
+
 		}
 
-		foreach ($mappings as $mid => $data) 
+		if (!$user->save()) { // if the user is NOT saved...
+
+		    JError::raiseWarning('', JText::_( $user->getError())); // ...raise an Warning
+		    return false; // if you're in a method/function return false
+
+		}
+
+		foreach ($mappings as $mid => $data)
 		{
 		    $table->storedata($cid, $mid, $data, 1);
 
@@ -247,7 +247,7 @@ class LDAPDirControllerUsers extends JController
 		    // TODO: Delete fields from users table
 		    $user = &JFactory::getUser($mid[$i]);
 		    $user->delete();
-		    
+
 		}
 
 		$this->setMessage( JText::sprintf( 'Items removed', $n ) );

@@ -41,9 +41,9 @@ class Tablemappings extends JTable
 
 	function getmappings()
 	{
-            $query = "select *"                                                                                                                                                                            
-                     . " from #__ldapd_mapping"; 
-            $this->_db->setQuery($query);                                                                                                                                                                                            
+            $query = "select *"
+                     . " from #__ldapd_mapping";
+            $this->_db->setQuery($query);
             return $this->_db->loadAssocList();
 	}
 }

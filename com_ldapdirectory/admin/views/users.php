@@ -1,20 +1,20 @@
 <?
 
-// no direct access                                                                                                                                                                                                                  
-defined( '_JEXEC' ) or die( 'Restricted access' );                                                                                                                                                                                   
-                                                                                                                                                                                                                                     
-/**                                                                                                                                                                                                                                  
-* @package              Joomla                                                                                                                                                                                                       
-* @subpackage   Banners                                                                                                                                                                                                              
-*/                                                                                                                                                                                                                                   
+// no direct access
+defined( '_JEXEC' ) or die( 'Restricted access' );
+
+/**
+* @package              Joomla
+* @subpackage   Banners
+*/
 class LDAPDirViewUsers
-{  
+{
 
        function displayusers( &$rows, &$pageNav, &$lists )
         {
 		JToolBarHelper::title( JText::_( 'Manage Users' ), 'generic.png' );
-                JToolBarHelper::deleteList( '', 'remove' );                                                                                                                                                                          
-                JToolBarHelper::editListX( 'edit' );                                                                                                                                                                                 
+                JToolBarHelper::deleteList( '', 'remove' );
+                JToolBarHelper::editListX( 'edit' );
 		ldapdirHelper::basicicons(true);
                 $user =& JFactory::getUser();
                 JHTML::_('behavior.tooltip');
@@ -224,16 +224,16 @@ class LDAPDirViewUsers
 			<fieldset class="adminform">
 				<legend><?php echo JText::_( 'Users Image' ); ?></legend>
 				<?php
-		    	    if (sizeof($row['picture']->data) > 0) {                                                                                                                                                                                   
-			        // Put a link to the image                                                                                                                                                                                                   
-			        echo "<img src='" . $mainframe->getSiteURL() . "index.php?option=com_ldapdirectory&task=uimage&uid=" . $row['id'] . "' /><BR><BR>";                                                                                                 
+		    	    if (sizeof($row['picture']->data) > 0) {
+			        // Put a link to the image
+			        echo "<img src='" . $mainframe->getSiteURL() . "index.php?option=com_ldapdirectory&task=uimage&uid=" . $row['id'] . "' /><BR><BR>";
 				echo "Keep Users Image:" . JHTML::_('select.radiolist', $yesno, 'kimage', 'class="inputbox" ', 'value', 'text', '1', 'align' );
-			    } else {                                                                                                                                                                                                                         
-			        // Default Image                                                                                                                                                                                                             
-			        echo "<img src='" . $mainframe->getSiteURL() . "components/com_ldapdirectory/assets/default.png' /><BR><BR>";                                                                                                                            
-			    }  
+			    } else {
+			        // Default Image
+			        echo "<img src='" . $mainframe->getSiteURL() . "components/com_ldapdirectory/assets/default.png' /><BR><BR>";
+			    }
 			    ?>
-		    
+
 			</fieldset>
 			<fieldset class="adminform">
 				<legend><?php echo JText::_( 'Mapped Info' ); ?></legend>

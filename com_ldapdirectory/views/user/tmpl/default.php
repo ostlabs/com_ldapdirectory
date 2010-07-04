@@ -21,13 +21,13 @@ This will display all the avilable details of the requested user.<BR>
 
     // Example to display user's image
 
-    if (sizeof($this->user->mdata['picture']['data']) > 0) {                                                                                                                                                                               
-        // Put a link to the image                                                                                                                                                                                               
-        echo "<img src='" . JURI::base() . "index.php?option=com_ldapdirectory&task=uimage&uid=" . $this->user->id . "' /><BR><BR>";                                                                                             
-    } else {                                                                                                                                                                                                                     
-        // Default Image                                                                                                                                                                                                         
-        echo "<img src='" . JURI::base() . "components/com_ldapdirectory/assets/default.png' /><BR><BR>";                                                                                                                        
-    }  
+    if (sizeof($this->user->mdata['picture']['data']) > 0) {
+        // Put a link to the image
+        echo "<img src='" . JURI::base() . "index.php?option=com_ldapdirectory&task=uimage&uid=" . $this->user->id . "' /><BR><BR>";
+    } else {
+        // Default Image
+        echo "<img src='" . JURI::base() . "components/com_ldapdirectory/assets/default.png' /><BR><BR>";
+    }
 
     // Example to display all joomla user data
 

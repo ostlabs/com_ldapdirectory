@@ -22,6 +22,8 @@ class LDAPDirHelperQuery
 
 	$db =& JFactory::getDBO(); 
 
+	if (!is_null($id)) $where = " WHERE id = $id";
+
 	$query1 = "select id, name, username, email, usertype, block, sendEmail, registerDate, lastvisitDate from #__users" . $where;
 
         $query2 = "select m.mid, m.name, m.displayname, m.usereditable, data"
@@ -35,7 +37,10 @@ class LDAPDirHelperQuery
             $result->link = JRoute::_("index.php?option=com_ldapdirectory&view=user&user=" . $result->id);
             $result->cemail = JHTML::_('email.cloak', $result->email);                                                                                                                                                      
     	    $db->setQuery($query2 . " AND uid = $id ORDER BY mid" );
-    	    $result->mdata = $db->loadObjectList(); 
+	    foreach ($db->loadAssocList() as $object ) {
+		$result->mdata[$object['name']]['data'] = $object['data']; 
+		$result->mdata[$object['name']]['displayname'] = $object['displayname']; 
+	    }
 	}
 	else
 	{
@@ -45,7 +50,10 @@ class LDAPDirHelperQuery
                     $result[$id]->link = JRoute::_("index.php?option=com_ldapdirectory&view=user&user=" . $user->id);                                                                                                                 
                     $result[$id]->cemail = JHTML::_('email.cloak', $user->email);                                                                                                                                                      
     		    $db->setQuery($query2 . " AND uid = $id ORDER BY mid" );
-    		    $result[$id]->mdata = $db->loadObjectList(); 
+		    foreach ($db->loadAssocList() as $object ) {
+			$result[$id]->mdata[$object['name']]['data'] = $object['data']; 
+			$result[$id]->mdata[$object['name']]['displayname'] = $object['displayname']; 
+		    }
             }  
 	}
 	return $result;

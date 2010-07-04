@@ -65,14 +65,16 @@ class LDAPDirController extends JController
 
 	    // Check that uid = self
 	    $myid = &JFactory::getUser();
+
+	    JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ldapdirectory'.DS.'tables');
+	    $table  =& JTable::getInstance('users', 'Table');
+
 	    if ($myid->id != $uid) {
 		// Error out
 		echo "I'm sorry dave, I can't do that";
 	    } else {
 		// get the array of DATA
 		foreach ($data as $mid => $value ) {
-		    JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_ldapdirectory'.DS.'tables');
-		    $table  =& JTable::getInstance('users', 'Table');
 		    $table->storedata($myid->id, $mid, $value, 1);
 		}
 		if ($image['error'] == 0) {

@@ -19,7 +19,9 @@ This will display all the avilable details of the requested user.<BR>
 <BR>
 <?php
 
-    if (sizeof($this->user->mdata[1]->data) > 0) {                                                                                                                                                                               
+    // Example to display user's image
+
+    if (sizeof($this->user->mdata['picture']['data']) > 0) {                                                                                                                                                                               
         // Put a link to the image                                                                                                                                                                                               
         echo "<img src='" . JURI::base() . "index.php?option=com_ldapdirectory&task=uimage&uid=" . $this->user->id . "' /><BR><BR>";                                                                                             
     } else {                                                                                                                                                                                                                     
@@ -27,11 +29,20 @@ This will display all the avilable details of the requested user.<BR>
         echo "<img src='" . JURI::base() . "components/com_ldapdirectory/assets/default.png' /><BR><BR>";                                                                                                                        
     }  
 
+    // Example to display all joomla user data
+
     foreach ($this->user as $m => $user) {
 	if (!is_array($user)) echo "$m: $user<BR>";
     }
+
+    // Example to display all mapped data of user
+
     foreach ($this->user->mdata as $mdata) {
-	echo $mdata->displayname . ": " . $mdata->data . "<BR>";
+	echo $mdata['displayname'] . ": " . $mdata['data'] . "<BR>";
     }
+
+    // Example to display a specific mapped data
+
+    echo "Users picture type: " . $this->user->mdata['picture']['data'];
 
 

@@ -18,6 +18,16 @@
                 <param name="ldap_fullname" type="text" size="20" default="cn" label="Map FullName" description="LDAP tag used for Joomla! User full name. LDAP is usually: cn or fullname -- AD is usually: displayName" />
                 <param name="ldap_email" type="text" size="20" default="mail" label="Map Email" description="LDAP tag used for Joomla! User email address. LDAP is usually: mail -- AD is usually: mail" />
                 <param name="ldap_uid" type="text" size="20" default="uid" label="Map User ID" description="LDAP tag used for Joomla! User login ID. LDAP is usually: uid -- AD is usually: sAMAccountName" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+                <param name="group_sync" type="radio" default="0" label="Sync groups with LDAP" description="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+                <param name="group_ldap" type="text" size="20" default="" label="LDAP Group Field" description="LDAP tag used for group assignment" />
+                <param name="group_autocreate" type="radio" default="0" label="Autocreate groups from LDAP" description="Autocreate groups from LDAP">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
 	</params>
 </config>
 

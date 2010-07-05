@@ -63,6 +63,19 @@ class LDAPDirHelperQuery
 	return $result;
     }
 
+    function querygroups ($basegroup) {
+	$db =& JFactory::getDBO();
+	$result=array();
+	$query = "SELECT id, name, description FROM #__ldapd_groups WHERE published=1 AND parent=" . $basegroup;
+	$db->setQuery($query);
+        foreach ($db->loadObjectList() as $id => $object ) {
+	    $result[$id]=$object;
+            $result[$id]->link = JRoute::_("index.php?option=com_ldapdirectory&view=groups&group=" . $object->id);
+	}
+	return $result;
+
+    }
+
     function getuserimage($uid) {
 	$db =& JFactory::getDBO();
 

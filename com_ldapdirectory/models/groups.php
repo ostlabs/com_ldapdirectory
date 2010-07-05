@@ -32,7 +32,7 @@ class LDAPDirModelGroups extends JModel
     }
 
     function getGroups($basegroup) {
-
+        return LDAPDirHelperQuery::querygroups($basegroup);
     }
 
 }

@@ -126,6 +126,16 @@ class ldapdirHelper
 		    $row->storedata ($user->id, $mapping->mid, $value[$mapping->ldapfield][0], $mapping->ldapwins);
 		}
 	    }
+
+	    // Groups
+	    $group = isset ($value[$params->get('group_ldap')][0]) ? $value[$params->get('group_ldap')][0] : FALSE;
+	    if ($commit && $params->get('group_sync') && $group ) {
+		echo "<LI>Group: " . $group . "</LI>";
+		$gTable =& JTable::getInstance('groups', 'Table');
+		$groupID = $gTable->getGroup($group, $params->get('group_autocreate'));
+		if ($groupID) $row->storedata ($user->id, 1, $groupID, true);
+	    }
+
 	    echo "</UL>";
 	}
 

@@ -16,15 +16,14 @@ This will display all users in a list.<BR>
 <BR>
 <?php if (count($this->groups)) { ?>
 <table>
-<tr><td>Name</td><td>email</td></tr>
+<tr><td>Name</td></tr>
 <?php  foreach ($this->groups as $group) { ?>
     <tr>
 	<td><a href="<?php echo $group->link; ?>"><?php echo $group->name; ?></a></td>
-	<td><?php echo ""; ?></td>
     </tr>
 <? } ?>
 </table>
-
+<BR><BR>
 <? } ?>
 <?php if (count($this->users)) { ?>
 <table>

@@ -27,4 +27,12 @@ jimport('joomla.application.component.model');
 class LDAPDirModelGroups extends JModel
 {
 
+    function getUsers($basegroup) {
+        return LDAPDirHelperQuery::queryusers(null, $basegroup);
+    }
+
+    function getGroups($basegroup) {
+
+    }
+
 }

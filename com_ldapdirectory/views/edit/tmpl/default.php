@@ -36,7 +36,7 @@ This will display all the avilable details of the requested user.<BR>
 
     if (is_array($this->user->mdata)) {
 
-	if (sizeof($this->user->mdata[1]->data) > 0) {
+	if (sizeof($this->user->mdata['picture']['data']) > 0) {
 	    // Put a link to the image
 	    echo "<img src='" . JURI::base() . "index.php?option=com_ldapdirectory&task=uimage&uid=" . $this->user->id . "' /><BR><BR>";
 	} else {
@@ -47,16 +47,17 @@ This will display all the avilable details of the requested user.<BR>
 	echo "Upload Image: <input type='file' name='image'><BR><BR>";
 
 	foreach ($this->user->mdata as $data) {
-	    if ($data->mid == 1 || $data->mid == 2) {
+	    if ($data['mid'] == 1 || $data['mid'] == 2) {
 		// Group or Picture - Do nothing as this should ALWAYS come from LDAP or placed in a space
-	    } elseif ($data->usereditable) {
-		echo $data->displayname . ": <input name='data[" . $data->mid . "]' value='" . $data->data . "'><BR>";
+	    } elseif ($data['usereditable']) {
+		echo $data['displayname'] . ": <input name='data[" . $data['mid'] . "]' value='" . $data['data'] . "'><BR>";
 	    } else  {
-		echo $data->displayname . ": " . $data->data . "<BR>";
+		echo $data['displayname'] . ": " . $data['data'] . "<BR>";
 	    }
 	}
     }
 
+print_r($this->user->mdata);
 ?>
         <button class="button" onclick="return submitbutton('send');">
                 <?php echo JText::_('SEND'); ?>

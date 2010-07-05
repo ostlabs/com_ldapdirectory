@@ -118,7 +118,7 @@ class LDAPDirViewMappings
 			                    $action = $row->usereditable ? JText::_( 'Make Uneditable' ) : JText::_( 'Make editable' );
 
 			                    echo '
-			                    <a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $prefix.$task .'\')" title="'. $action .'">
+			                    <a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $task .'\')" title="'. $action .'">
 			                    <img src="images/'. $img .'" border="0" alt="'. $alt .'" /></a>'
 			                    ;
 					    ?>
@@ -141,7 +141,7 @@ class LDAPDirViewMappings
 			                    $action = $row->ldapwins ? JText::_( 'LDAP to loose' ) : JText::_( 'LDAP to win' );
 
 			                    echo '
-			                    <a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $prefix.$task .'\')" title="'. $action .'">
+			                    <a href="javascript:void(0);" onclick="return listItemTask(\'cb'. $i .'\',\''. $task .'\')" title="'. $action .'">
 			                    <img src="images/'. $img .'" border="0" alt="'. $alt .'" /></a>'
 			                    ;
 					    ?>

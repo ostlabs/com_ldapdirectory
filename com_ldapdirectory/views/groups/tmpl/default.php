@@ -1,10 +1,39 @@
 <?php
-/**
- * $Id: default.php 13339 2009-10-27 02:27:05Z ian $
- */
+
 defined( '_JEXEC' ) or die( 'Restricted access' );
+
+// $this->user export details:
+// id, name, username, email, usertype, block, sendEmail, registerDate, lastvisitDate and URL
+// URL is a routed url to the specific user view
+// Example bellow on how to use this view.
+// To overload copy this file to webroot/templates/[Template]/html/com_ldapdirectory/users/default.php
+
+// If you do not want to show blocked users, look for $this->users->blocked
 
 ?>
 
-This is a test
+This will display all users in a list.<BR>
+<BR>
+<?php if (count($this->groups)) { ?>
+<table>
+<tr><td>Name</td><td>email</td></tr>
+<?php  foreach ($this->groups as $group) { ?>
+    <tr>
+	<td><a href="<?php echo $group->link; ?>"><?php echo $group->name; ?></a></td>
+	<td><?php echo ""; ?></td>
+    </tr>
+<? } ?>
+</table>
 
+<? } ?>
+<?php if (count($this->users)) { ?>
+<table>
+<tr><td>Name</td><td>email</td></tr>
+<?php  foreach ($this->users as $user) { ?>
+    <tr>
+	<td><a href="<?php echo $user->link; ?>"><?php echo $user->name; ?></a></td>
+	<td><?php echo $user->cemail; ?></td>
+    </tr>
+<? } ?>
+</table>
+<?php } ?>

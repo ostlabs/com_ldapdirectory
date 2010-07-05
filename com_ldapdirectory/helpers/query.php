@@ -18,13 +18,17 @@ defined('_JEXEC') or die( 'Restricted access' );
 class LDAPDirHelperQuery
 {
 
-    function queryusers($id=null) {
+    function queryusers($id=null, $group=null) {
 
 	$db =& JFactory::getDBO();
 
+	$where = "";
+
 	if (!is_null($id)) $where = " WHERE id = $id";
 
-	$query1 = "select id, name, username, email, usertype, block, sendEmail, registerDate, lastvisitDate from #__users" . $where;
+        if (!is_null($group)) $where = " LEFT JOIN #__ldapd_userdata as d on d.uid = u.id WHERE d.mid=1 AND d.data=" . $group;
+
+	$query1 = "select u.id, name, username, email, usertype, block, sendEmail, registerDate, lastvisitDate from #__users as u" . $where;
 
         $query2 = "select m.mid, m.name, m.displayname, m.usereditable, data"
     		 . " from #__ldapd_mapping as m"
@@ -49,7 +53,7 @@ class LDAPDirHelperQuery
 	    {
                     $result[$id]->link = JRoute::_("index.php?option=com_ldapdirectory&view=user&user=" . $user->id);
                     $result[$id]->cemail = JHTML::_('email.cloak', $user->email);
-    		    $db->setQuery($query2 . " AND uid = $id ORDER BY mid" );
+    		    $db->setQuery($query2 . " AND uid = " . $user->id ." ORDER BY mid" );
 		    foreach ($db->loadAssocList() as $object ) {
 			$result[$id]->mdata[$object['name']]['data'] = $object['data'];
 			$result[$id]->mdata[$object['name']]['displayname'] = $object['displayname'];

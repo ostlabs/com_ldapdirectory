@@ -87,16 +87,16 @@ class LDAPDirViewUsers
                                         </td>
                                         <td>
                                                 <?php
-                                                if (  JTable::isCheckedOut($user->get ('id'), $row->checked_out ) ) {
-                                                        echo $row->name;
-                                                } else {
+//                                                if (  JTable::isCheckedOut($user->get ('id'), $row->checked_out ) ) {
+//                                                        echo $row->name;
+//                                                } else {
                                                         ?>
                                                                 <span class="editlinktip hasTip" title="<?php echo JText::_( 'Edit' );?>::<?php echo $row->name; ?>">
                                                         <a href="<?php echo $link; ?>">
                                                                 <?php echo $row->name; ?></a>
                                                                 </span>
                                                         <?php
-                                                }
+//                                                }
                                                 ?>
                                         </td>
                                         <td>
@@ -224,7 +224,7 @@ class LDAPDirViewUsers
 			<fieldset class="adminform">
 				<legend><?php echo JText::_( 'Users Image' ); ?></legend>
 				<?php
-		    	    if (sizeof($row['picture']->data) > 0) {
+		    	    if (isset($row['picture']) && sizeof($row['picture']->data) > 0) {
 			        // Put a link to the image
 			        echo "<img src='" . $mainframe->getSiteURL() . "index.php?option=com_ldapdirectory&task=uimage&uid=" . $row['id'] . "' /><BR><BR>";
 				echo "Keep Users Image:" . JHTML::_('select.radiolist', $yesno, 'kimage', 'class="inputbox" ', 'value', 'text', '1', 'align' );
@@ -248,7 +248,7 @@ class LDAPDirViewUsers
 						</label>
 					</td>
 					<td>
-						<input class="inputbox" type="text" name="mapping[<?php echo $value['mid']; ?>]" id="mapping[<?php echo $value['name']; ?>]" size="40" maxlength="60" value="<?php echo $row[$value['name']]->data; ?>" />
+						<input class="inputbox" type="text" name="mapping[<?php echo $value['mid']; ?>]" id="mapping[<?php echo $value['name']; ?>]" size="40" maxlength="60" value="<?php echo isset($row[$value['name']]) ? $row[$value['name']]->data : ""; ?>" />
 					</td>
 				</tr>
 				<?php } } ?>

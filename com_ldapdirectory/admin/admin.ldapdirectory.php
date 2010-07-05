@@ -34,6 +34,13 @@ switch (strtolower($controller))
 	    $controller->redirect();
 	    break;
 
+	case 'groups' :
+	    require_once(JPATH_COMPONENT.DS.'controllers'.DS.'groups.php');
+	    $controller = new LDAPDirControllerGroups();
+    	    $controller->handletask($task);
+	    $controller->redirect();
+	    break;
+
 	case 'sync' :
 	    JToolBarHelper::title( JText::_( 'Syncing Users' ), 'generic.png' );
 	    ldapdirHelper::basicicons();

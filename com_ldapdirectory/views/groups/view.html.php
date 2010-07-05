@@ -27,6 +27,14 @@ class ldapdirViewGroups extends JView
 	{
 		global $mainframe, $option;
 		// Show all the groups
+		$basegroup = JRequest::getInt('group', 0);
+
+		$model =& $this->getModel();
+		$groups = $model->getGroups($basegroup);
+		$users = $model->getUsers($basegroup);
+
+		$this->assignRef('groups', $groups);
+		$this->assignRef('users', $users);
 
 		parent::display($tpl);
 

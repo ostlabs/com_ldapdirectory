@@ -12,7 +12,7 @@ class ldapdirHelper
 	if (!$hasform)
 	{
         echo '<form action="index.php" method="post" name="adminForm" autocomplete="off">';
-        echo '<input type="hidden" name="option" value="'.$option.'com_ldapdirectory" /><input type="hidden" name="task" value="'.$task.'" />';
+        echo '<input type="hidden" name="option" value="com_ldapdirectory" /><input type="hidden" name="task" value="" />';
         echo '</form>';
 	}
     }
@@ -69,10 +69,10 @@ class ldapdirHelper
 
 	foreach ($results as $value) {
 
-	    $commit = $params->get('use_commit');
-	    $username = $value[$params->get('ldap_uid')][0];
-	    $fullname = $value[$params->get('ldap_fullname')][0];
-	    $email = $value[$params->get('ldap_email')][0];
+	    $commit = @$params->get('use_commit');
+	    $username = @$value[$params->get('ldap_uid')][0];
+	    $fullname = @$value[$params->get('ldap_fullname')][0];
+	    $email = @$value[$params->get('ldap_email')][0];
 
 	    echo "User DN: " . $value['dn'] . "<BR>";
 	    echo "<UL>";
@@ -119,8 +119,8 @@ class ldapdirHelper
 	    echo "	<LI>Full Name: " . $fullname . "</li>";
 	    echo "	<LI>email: " . $email . "</li>";
 	    foreach ($rows as $mapping) {
-		echo "	<LI>" . $mapping->displayname . " ( " . $mapping->name . " ): " . $value[$mapping->ldapfield][0] . "</LI>";
-		if ($commit && $value[$mapping->ldapfield][0] != "")
+		echo "	<LI>" . $mapping->displayname . " ( " . $mapping->name . " ): " . @$value[$mapping->ldapfield][0] . "</LI>";
+		if ($commit && @$value[$mapping->ldapfield][0] != "")
 		{
 		    // Insert into data DB
 		    $row->storedata ($user->id, $mapping->mid, $value[$mapping->ldapfield][0], $mapping->ldapwins);

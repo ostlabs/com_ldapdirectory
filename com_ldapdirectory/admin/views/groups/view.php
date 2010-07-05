@@ -77,7 +77,8 @@ class ldapdirViewgroups extends JView
 
 		$yesno[] = JHTML::_( 'select.option', '1', 'Yes' );
 		$yesno[] = JHTML::_( 'select.option', '0', 'No' ); // first parameter is value, second is text
-
+		$editor = &JFactory::getEditor(); 
+		echo $editor->initialise(); 
 		?>
 		<script language="javascript" type="text/javascript">
 		<!--
@@ -142,6 +143,7 @@ class ldapdirViewgroups extends JView
 						<td>
 							<? echo JHTML::_('select.radiolist', $yesno, 'published', 'class="inputbox" ', 'value', 'text', $row->published, 'align' ); ?>
 						</td>
+					</tr>
                                                 <tr>
                                                         <td class="key" align="right" valign="top">
                                                                 <?php echo JText::_( 'Parent Item' ); ?>:
@@ -151,8 +153,10 @@ class ldapdirViewgroups extends JView
                                                         </td>
                                                 </tr>
 					</tr>
-					</tr>
 					</table>
+					<BR>
+					<h3>Description:</h3>
+					 <?php echo $editor->display("description", $row->description, 1000, 400, 1000, 100, false); ?>
 			</fieldset>
 		</div>
 		<div class="clr"></div>

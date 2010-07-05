@@ -118,7 +118,10 @@ class LDAPDirControllerGroups extends JController
 		$db		=& JFactory::getDBO();
 		$table	=& JTable::getInstance('groups', 'Table');
 
-		if (!$table->bind( JRequest::get( 'post' ) )) {
+		$post           = JRequest::get( 'post' );
+		$post['description'] = JRequest::getVar( 'description', '', 'post', 'string', JREQUEST_ALLOWRAW );
+
+		if (!$table->bind( $post )) {
 			return JError::raiseWarning( 500, $table->getError() );
 		}
 		if (!$table->check()) {

@@ -15,14 +15,13 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 This will display all users in a list.<BR>
 <BR>
 <?php if (count($this->groups)) { ?>
-<table>
-<tr><td>Name</td></tr>
+Groups:<BR><BR>
 <?php  foreach ($this->groups as $group) { ?>
-    <tr>
-	<td><a href="<?php echo $group->link; ?>"><?php echo $group->name; ?></a></td>
-    </tr>
+<a href="<?php echo $group->link; ?>"><?php echo $group->name; ?></a>
+<?php echo $group->description;?>
+<BR><BR>
+
 <? } ?>
-</table>
 <BR><BR>
 <? } ?>
 <?php if (count($this->users)) { ?>

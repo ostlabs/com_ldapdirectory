@@ -227,7 +227,6 @@ class LDAPDirControllerUsers extends JController
 		    foreach ($rows as $row) {
 			$table->delete($row->id);
 		    }
-		    // TODO: Delete fields from users table
 		    $user = &JFactory::getUser($mid[$i]);
 		    $user->delete();
 

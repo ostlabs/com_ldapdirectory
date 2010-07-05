@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+   <layout title="Display a specific user">
+      <message>
+         <![CDATA[Display a specific user from the LDAP directory]]>
+      </message>
+   </layout>
+   <state>
+      <name>Display User</name>
+      <description>Display a specific user from LDAP Directory</description>
+      <url addpath="/administrator/components/com_ldapdirectory/elements">
+         <param name="user" type="ldapduser" section="com_ldapdirectory" default="0" label="Select User" description="Select the user you want to display" />
+      </url>
+   </state>
+</metadata>

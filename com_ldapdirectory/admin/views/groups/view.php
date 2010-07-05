@@ -77,8 +77,8 @@ class ldapdirViewgroups extends JView
 
 		$yesno[] = JHTML::_( 'select.option', '1', 'Yes' );
 		$yesno[] = JHTML::_( 'select.option', '0', 'No' ); // first parameter is value, second is text
-		$editor = &JFactory::getEditor(); 
-		echo $editor->initialise(); 
+		$editor = &JFactory::getEditor();
+		echo $editor->initialise();
 		?>
 		<script language="javascript" type="text/javascript">
 		<!--

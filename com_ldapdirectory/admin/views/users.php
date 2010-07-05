@@ -70,7 +70,7 @@ class LDAPDirViewUsers
                                 $row = &$rows[$i];
 
                                 $link                   = JRoute::_( 'index.php?option=com_ldapdirectory&controller=users&task=edit&cid[]='. $row->id );
-
+				$row->checked_out 	= false;
                                 $checked                = JHTML::_('grid.checkedout',   $row, $i );
                                 ?>
                                 <tr class="<?php echo "row$k"; ?>">
@@ -81,18 +81,9 @@ class LDAPDirViewUsers
                                                 <?php echo $checked; ?>
                                         </td>
                                         <td>
-                                                <?php
-//                                                if (  JTable::isCheckedOut($user->get ('id'), $row->checked_out ) ) {
-//                                                        echo $row->name;
-//                                                } else {
-                                                        ?>
-                                                                <span class="editlinktip hasTip" title="<?php echo JText::_( 'Edit' );?>::<?php echo $row->name; ?>">
-                                                        <a href="<?php echo $link; ?>">
-                                                                <?php echo $row->name; ?></a>
-                                                                </span>
-                                                        <?php
-//                                                }
-                                                ?>
+                                        <span class="editlinktip hasTip" title="<?php echo JText::_( 'Edit' );?>::<?php echo $row->name; ?>">
+                                    	    <a href="<?php echo $link; ?>"><?php echo $row->name; ?></a>
+                                        </span>
                                         </td>
                                         <td>
                                                 <?php echo $row->username; ?>

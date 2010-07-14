@@ -57,7 +57,6 @@ This will display all the avilable details of the requested user.<BR>
 	}
     }
 
-print_r($this->user->mdata);
 ?>
         <button class="button" onclick="return submitbutton('send');">
                 <?php echo JText::_('SEND'); ?>

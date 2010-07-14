@@ -93,11 +93,7 @@ class ldapdirViewgroups extends JView
 			// do field validation
 			if (form.name.value == "")
 			{
-				alert( "<?php echo JText::_( 'Please fill in the Mapping Name.', true ); ?>" );
-			}
-			else if (form.lvalue.value == "")
-			{
-				alert( "<?php echo JText::_( 'Please fill in the Display Name.', true ); ?>" );
+				alert( "<?php echo JText::_( 'Please fill in the Name.', true ); ?>" );
 			}
 			else
 			{

@@ -1,4 +1,11 @@
 <?php
+/**
+ * @package LDAPDirectory for Joomla! 1.5
+ * @author Jason Kendall
+ * @copyright (C) 2010 - OSTLabs Inc
+ * @license GNU/GPL http://www.gnu.org/copyleft/gpl.html
+**/
+
 defined('_JEXEC') or die( 'Restricted access' );
 
 class LDAPDirHelperView

@@ -12,6 +12,10 @@
 			<option value="0">No</option>
 			<option value="1">Yes</option>
 		</param>
+                <param name="add_addisable" type="radio" default="0" label="Sync AD Disabled Users" description="If the user is disabled in AD, it will be synced anyway. NOTE: We will NOT delete disabled users.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
 		<param name="@spacer" type="spacer" default="" label="" description="" />
                 <param name="ldap_filterstring" type="text" size="20" default="objectclass=person" label="Filter String" description="LDAP Filter string used to filter out ldap accounts. LDAP is usually: objectclass=person -- AD is usually: user" />
                 <param name="@spacer" type="spacer" default="" label="" description="Joomla! User Mappings" />

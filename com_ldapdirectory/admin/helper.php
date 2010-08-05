@@ -69,6 +69,7 @@ class ldapdirHelper
 
 	foreach ($results as $value) {
 
+
 	    $commit = @$params->get('use_commit');
 	    $username = @$value[$params->get('ldap_uid')][0];
 	    $fullname = @$value[$params->get('ldap_fullname')][0];
@@ -76,6 +77,21 @@ class ldapdirHelper
 
 	    echo "User DN: " . $value['dn'] . "<BR>";
 	    echo "<UL>";
+
+	    if ($params->get('use_addisable') && ((@$value['userAccountControl'][0] & 2) == 2))
+	    {
+		if ($params->get('add_addisable')) {
+		    echo "<LI><font color='GREEN'>User is Disabled and will be synced.</font></LI>";
+		    $block = 1;
+		} else {
+		    echo "<LI><font color='RED'>User is Disabled and will NOT be synced.</font></LI>";
+		    $commit = false;
+		    $block = 1;
+		}
+	    } else {
+		echo "<LI>User will be Enabled</LI>";
+		    $block = 0;
+	    }
 
 	    if ($username == "" || $fullname == "" || $email == "" )
 	    {
@@ -102,7 +118,7 @@ class ldapdirHelper
 		    $data['gid'] = $acl->get_group_id( '', $usertype, 'ARO' );  // generate the gid from the usertype
 		    $data['sendEmail'] = 0;
 		}
-		$data['block'] = 0;
+		$data['block'] = $block;
 
 		if (!$user->bind($data)) {
 		    // Something went wrong
